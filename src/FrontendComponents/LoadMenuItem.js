@@ -16,6 +16,7 @@ function LoadMenuItems(props){
             onClick={() =>{props.onItemClick(item._id)}}
              Reload={()=>{props.ReloadData()}}
              onRemove={() => props.onRemoveItem(item._id)}
+            isInDay={true}
              ></MenuItems>
         }
     );

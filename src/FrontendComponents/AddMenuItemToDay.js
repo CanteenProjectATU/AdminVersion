@@ -63,6 +63,7 @@ const AddMenuItemToDay = () => {
                     myMenuItem={item}  //passes in this items information
                     onClick={() => addToDay(item._id)} //When the card is clicked call the addToDay function
                     isClickable={true} // This allows the entire card to be clicked as I have not assigned a button for add to day
+                    isInDay={false}
                 />
                 
             ))}

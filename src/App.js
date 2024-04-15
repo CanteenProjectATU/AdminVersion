@@ -15,6 +15,7 @@ import EditMenuItem from './FrontendComponents/EditMenuItem';
 import Day from './FrontendComponents/Day';
 import AddMenuItemToDay from './FrontendComponents/AddMenuItemToDay';
 import LoginPage from './FrontendComponents/Login';
+import ViewMenuItems from './FrontendComponents/ViewMenuItems';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
                   <Nav.Link href="/OpeningHours">Opening Hours</Nav.Link>
                   <Nav.Link href="/CreateMenuItem">Create a new item</Nav.Link>
                   <Nav.Link href="/CreateRecipe">Submit a new recipe</Nav.Link>
+                  <Nav.Link href="/ViewItems">View Menu Items</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
 
@@ -60,6 +62,7 @@ function App() {
           <Route path='/FoodPantry' element={<FoodPantry></FoodPantry>}></Route>
           <Route path='/CreateMenuItem' element={<CreateMenuItem></CreateMenuItem>}></Route>
           <Route path='/CreateRecipe' element={<CreateRecipe></CreateRecipe>}></Route>
+          <Route path='/ViewItems' element={<ViewMenuItems></ViewMenuItems>}></Route>
           <Route path='/EditMenuItem/:id' element={<EditMenuItem></EditMenuItem>}></Route>
           {/* this route is for the weekly menu days */}
           <Route path="/day/:day" element={<Day></Day>}></Route>

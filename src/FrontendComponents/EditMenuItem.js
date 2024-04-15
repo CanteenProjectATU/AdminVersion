@@ -67,7 +67,7 @@ export default function EditMenuItem(props) {
         })
             .then((res) => {
                 console.log(res.data);
-                navigate('/Menus');
+                navigate('/ViewItems');
             })
             .catch(error => {
                 console.log(error.response.data.message);

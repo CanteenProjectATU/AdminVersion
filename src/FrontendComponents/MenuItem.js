@@ -13,6 +13,7 @@ function MenuItems(props) {
     //undefined - if isClickable is false then it is set to undefined and will not trigger a click event handler
     //This is what allows the cards to be clicked on the addToDay.js component
     const ifClickAllowed = props.isClickable ? props.onClick : undefined;
+
     //declare these to allow me to use the remove from day function
     const { myMenuItem, onRemove } = props;
 
@@ -58,7 +59,8 @@ function MenuItems(props) {
                     )}
 
                     <Card.Text></Card.Text>
-                    {isAdmin() && (
+                    {(!props.isClickable && props.isInDay) && (
+                        
                         //This button removes the menu item from the specific day of the week but doesnt delete it from the database
                         <Button variant="warning" onClick={() => onRemove(myMenuItem._id)}  style={{width: 100}}>
                             Remove from Day
