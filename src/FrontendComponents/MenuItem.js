@@ -34,13 +34,17 @@ function MenuItems(props) {
                     <Card.Text>{props.myMenuItem.description}</Card.Text>
                     <Card.Subtitle>Price: €{props.myMenuItem.price}</Card.Subtitle>
                     <Card.Text></Card.Text>
-                    {/* isAdmin() is from utils.js  -- This means the buttons are only visible if the user has entered the correct password */}
-                    {isAdmin() && (
+                    {/* 
+                        isAdmin() is from utils.js  -- This means the buttons are only visible if the user has entered the correct password 
+                        props.isClickable is used as a way of determing where the item is being rendered. If in "Add Item", edit/delete shouldn't be loaded.
+                        isInDay is used to ensure that "Remove From Day" only appears when rendered from a Menu Day.
+                    */}
+                    {(!props.isClickable && isAdmin()) && (
                         //this is brings you to the edit page and passes in the id in the url to edit that specific menu item
                         <Link to={'/EditMenuItem/' + props.myMenuItem._id} className="btn btn-primary" style={{width: 100}}>Edit</Link>
                     )}
                     <Card.Text></Card.Text>
-                    {isAdmin() && (
+                    {(!props.isClickable && isAdmin()) && (
                         //This button deletes the menu item with this id from the database entirely
                         //post request sends the password with it so the admin dont have to enter the password manually everytime they want to do something
                         <Button onClick={(e) => {
@@ -59,7 +63,7 @@ function MenuItems(props) {
                     )}
 
                     <Card.Text></Card.Text>
-                    {(!props.isClickable && props.isInDay) && (
+                    {(!props.isClickable && props.isInDay && isAdmin()) && (
                         
                         //This button removes the menu item from the specific day of the week but doesnt delete it from the database
                         <Button variant="warning" onClick={() => onRemove(myMenuItem._id)}  style={{width: 100}}>
