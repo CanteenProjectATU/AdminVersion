@@ -8,7 +8,7 @@ import { getAuthenticationTokenFromLocalStorage } from '../utilities/utils';
 const AddMenuItemToDay = () => {
     const { day } = useParams();
     const [menuItems, setMenuItem] = useState([]);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     //get all the menu items from database
     useEffect(
@@ -42,9 +42,10 @@ const AddMenuItemToDay = () => {
             }
         })
         .then(()=>  {
-            // navigate(`/day/${day}`)
+            
             //if it is added correctly alert the user that it worked on they will end up clicking multiple times
             alert('Added menu item to ' + day)
+            navigate('/day/'+day)
         }).catch((error) => { //catch errors - is to send an error message to the console
                 console.log(error.response.data.message);
             });
